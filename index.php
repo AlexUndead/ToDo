@@ -14,14 +14,27 @@
 		<header></header>
 		<div class="main-container clearfix">
 			<div class="main-left-sidebar clearfix">
-				<div class="calendar">
-					<div class="panel">
-						<button v-on:click="followingMonth"><</button>
-						<button v-on:click="previousMonth">></button>
+				<div class="calendar" id="calendar">
+					<div class="panel clearfix">
+						<div class="buttons">
+							<button v-on:click="followingMonth"><</button>
+							<button v-on:click="previousMonth">></button>
+						</div>
+						<div class="date">
+							<div class="year">{{ year }}</div>
+							<div class="month">{{ nameMonth }}</div>
+						</div>
 					</div>
 					<div id="dates">
 						<ul class="clearfix">
-							<li class="days" v-for="day in days">{{ day }}</li>
+							<li class="days name_day">Пн</li>
+							<li class="days name_day">Вт</li>
+							<li class="days name_day">Ср</li>
+							<li class="days name_day">Чт</li>
+							<li class="days name_day">Пт</li>
+							<li class="days name_day">Сб</li>
+							<li class="days name_day">Вс</li>
+							<li class="days" v-for="day in days" v-bind:class="{'now_month': day.thisMonth, 'active':activeDate === day.id}" v-on:mousedown="activeDate = day.id">{{ day.number }}</li>
 						</ul>
 					</div>
 				</div>
