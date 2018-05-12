@@ -7,7 +7,9 @@
 
 	<title>Todo</title>
 	<link rel="stylesheet" href="/Source/css/style.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<!--Materialize Css-->
+	<link rel="stylesheet" href="/Source/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 	<div class="main-wrapper">
@@ -17,8 +19,8 @@
 				<div class="calendar" id="calendar">
 					<div class="panel clearfix">
 						<div class="buttons">
-							<button v-on:click="followingMonth"><</button>
-							<button v-on:click="previousMonth">></button>
+							<i class="material-icons" v-on:click="followingMonth">chevron_left</i>
+							<i class="material-icons" v-on:click="previousMonth">chevron_right</i>
 						</div>
 						<div class="date">
 							<div class="year">{{ year }}</div>
@@ -34,15 +36,39 @@
 							<li class="days name_day">Пт</li>
 							<li class="days name_day">Сб</li>
 							<li class="days name_day">Вс</li>
-							<li class="days" v-for="day in days" v-bind:class="{'now_month': day.thisMonth, 'active':activeDate === day.id}" v-on:mousedown="activeDate = day.id">{{ day.number }}</li>
+							<li class="days" v-for="day in days" v-bind:class="{'now_month': day.thisMonth}">{{ day.number }}</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			<div class="main-content">1</div>
+			<div class="main_content" id="content">
+				<div class="container">
+					<div class="row">
+						<div class="todo_list col s12">
+							<h1 class="center-align">Список задач</h1>
+							<div class="row">
+								<input class="col s10" type="text" v-model="todoItem">
+								<button class="col s2 waves-effect waves-light btn" type="submit" name="action" v-on:click="addTodoItem(todoItem)">Добавить</button>
+								<table class="col s12 center-align striped">
+							        <thead>
+							        </thead>
+							        <tbody>
+								        <tr v-for="todo in todos">
+								        	<td class="center-align">{{ todo.name }}</td>
+								        </tr>
+							        </tbody>
+							    </table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
+<!--Vue CDN-->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<!--Materialize Js-->
+<script src="/Source/js/materialize.min.js"></script>
 <script src="/Source/js/calendar.js"></script>
 
 </body>

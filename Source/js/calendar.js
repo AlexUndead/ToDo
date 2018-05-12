@@ -80,6 +80,25 @@ var calendar = new Vue ({
 	}
 });
 
+var content = new Vue ({
+	el:"#content",
+	data:{
+		todoItem:'',
+		todos:[
+			{id:1, name:"Разбудить марину"},
+			{id:2, name:"Постелить диван"}
+		]
+	},
+	methods:{
+		addTodoItem: function(a){
+			if(trim(a)){
+				var td = this.todos;
+				td.push({id:td.length+1, name:a})
+			}
+		}
+	}
+})
+
 //test
 var monthafaf = 26;
 var test = new Date(2018, monthafaf, 1);

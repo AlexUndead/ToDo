@@ -28,11 +28,12 @@ header{
 	height: 95vh;
 	min-width: 200px;
 }
-.main-content{
+.main_content{
 	float: right;
 	width: 85%;
 	height: 95vh;
 	min-width: 1125px;
+	padding: 10px;
 }
 
 /*Calendar*/
@@ -41,9 +42,7 @@ header{
 	overflow: hidden;
 }
 .calendar ul{
-	margin-left: 0;
-    padding-left: 0;
-    padding: 5px;
+
 }
 .calendar li{
 	margin: 5px 7px 5px 7px;
@@ -63,10 +62,17 @@ header{
 .name_day{
 	color: #757575;
 }
+.panel{
+	margin: 0px 7px 0px 7px;
+}
 .buttons{
 	float: right;
 	width: 40%;
 	text-align: right;
+	padding: 10px;
+}
+.buttons i{
+	cursor: pointer;
 }
 .date{
 	float: left;
@@ -80,6 +86,13 @@ header{
 .month{
 	float: left;
 }
-/* #dates{
-	padding: 5px;
-} */
+#dates{
+	margin: 10px;
+}
+
+
+/*maririalize*/
+/*content*/
+.todo_list{
+	/* width: 50%; */
+}
